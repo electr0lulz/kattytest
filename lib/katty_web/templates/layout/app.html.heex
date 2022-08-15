@@ -1,0 +1,5 @@
+<body class="px-2 pt-12 pb-6 min-h-screen md:px-0 md:pt-20 body-bg" style="font-family:'Lato',sans-serif;">
+  <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+  <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+  <%= @inner_content %>
+</body>
