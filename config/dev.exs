@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :katty, Katty.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "elixir",
+  password: "elixir",
   hostname: "localhost",
-  database: "katty_dev",
+  database: "katty_dev2",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

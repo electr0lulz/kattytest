@@ -7,3 +7,4 @@ defmodule KattyWeb.PageController do
     |> render("index.html")
   end
 end
+#OK

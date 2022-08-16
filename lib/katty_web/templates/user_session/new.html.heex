@@ -1,9 +1,10 @@
 <main class="p-8 my-10 mx-auto max-w-lg bg-white rounded-lg shadow-2xl md:p-12">
   <section>
-    <h3 class="text-2xl font-bold">Welcome to Startup</h3>
-    <p class="pt-2 text-gray-600">Sign in to your account.</p>
+    <h3 class="text-2xl text-black text-center font-bold">Katty's Zone</h3>
   </section>
-
+  <section class="hero container max-w-screen-lg mx-auto pb-10">
+    <img width="150" height="150" class="mx-auto" src={Routes.static_path(@conn, "/images/gatto_login.jpg")}>
+    </section>
   <section class="mt-10">
     <.form let={f} for={@conn} action={Routes.user_session_path(@conn, :create)} as={:user} class="flex flex-col">
       <%= if @error_message do %>
@@ -11,37 +12,26 @@
           <p><%= @error_message %></p>
         </div>
       <% end %>
-      <div class="pt-3 mb-6 bg-gray-200 rounded">
-        <%= label(f, :email, class: "block mb-2 ml-3 text-sm font-bold text-gray-700") %>
-        <%= email_input(f, :email,
-          required: true,
-          class:
-            "px-3 pb-3 w-full text-gray-700 bg-gray-200 rounded border-b-4 border-gray-300 transition duration-500 focus:border-purple-600 focus:outline-none"
-        ) %>
+      <div class="mt-1 mb-1 form-control">
+        <%= label f, :email, class: "label text-1xl text-black text-bold label-text text-center" %>
+        <%= email_input f, :email, required: true, class: "bg-white input input-bordered" %>
+        <%= error_tag f, :email %>
       </div>
-      <div class="pt-3 mb-6 bg-gray-200 rounded">
-        <%= label(f, :password, class: "block mb-2 ml-3 text-sm font-bold text-gray-700") %>
-        <%= password_input(f, :password,
-          required: true,
-          class:
-            "px-3 pb-3 w-full text-gray-700 bg-gray-200 rounded border-b-4 border-gray-300 transition duration-500 focus:border-purple-600 focus:outline-none"
-        ) %>
+      <div class="mb-5 form-control">
+        <%= label f, :password, class: "label text-1xl text-black text-bold label-text text-center" %>
+        <%= password_input f, :password, required: true, class: " bg-white input input-bordered" %>
+        <%= error_tag f, :password %>
       </div>
-      <div class="flex justify-end">
-        <%= link("Register",
-          to: Routes.user_registration_path(@conn, :new),
-          class: "mb-6 text-sm text-purple-600 hover:text-purple-700 hover:underline"
-        ) %> | <%= link("Forgot your password?",
-          to: Routes.user_reset_password_path(@conn, :new),
-          class: "mb-6 text-sm text-purple-600 hover:text-purple-700 hover:underline"
-        ) %>
-      </div>
-      <button
-        class="py-2 font-bold text-white bg-purple-600 rounded shadow-lg transition duration-200 hover:bg-purple-700 hover:shadow-xl"
-        type="submit"
-      >
+      <div id="form-control" phx-update="ignore"></div>
+      <%= raw Recaptcha.Template.display(onload: "myOnLoadCallback", theme: "light") %>
+      <button class="mb-1 mt-4 py-2 font-bold text-white bg-purple-600 rounded shadow-lg transition duration-200 hover:bg-purple-700 hover:shadow-xl" type="submit">
         Sign In
       </button>
+      <div class="mt-2 mb-2 flex justify-end">
+        <%= link("Forgot your password?",
+        to: Routes.user_reset_password_path(@conn, :new),
+        class: "mb-6 text-sm text-purple-600 hover:text-purple-700 hover:underline") %>
+    </div>
     </.form>
   </section>
 </main>

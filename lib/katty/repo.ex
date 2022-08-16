@@ -1,3 +1,4 @@
+#OK
 defmodule Katty.Repo do
   use Ecto.Repo,
     otp_app: :katty,

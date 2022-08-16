@@ -5,9 +5,22 @@ defmodule KattyWeb.UserRegistrationController do
   alias Katty.Users.User
   alias KattyWeb.UserAuth
 
+  plug :validate_captcha, [] when action == :create
+
   def new(conn, _params) do
     changeset = Users.change_user_registration(%User{})
     render(conn, "new.html", changeset: changeset)
+  end
+
+  def validate_captcha(conn, params ) do
+    case Recaptcha.verify(conn.params["g-recaptcha-response"]) do
+      {:ok, response} -> conn
+      {:error, [:invalid_input_response]} ->
+        conn
+        |> put_flash(:error, "Error: Wrong Captcha")
+        |> redirect(to: "/log_in")
+        |> halt()
+          end
   end
 
   def create(conn, %{"user" => user_params}) do

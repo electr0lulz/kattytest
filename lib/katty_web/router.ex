@@ -39,8 +39,7 @@ defmodule KattyWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through :browser
-
+      pipe_through [:browser, :require_authenticated_user]
       live_dashboard "/dashboard", metrics: KattyWeb.Telemetry
     end
   end
@@ -51,7 +50,7 @@ defmodule KattyWeb.Router do
   # node running the Phoenix server.
   if Mix.env() == :dev do
     scope "/dev" do
-      pipe_through :browser
+      pipe_through [:browser, :require_authenticated_user]
 
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
@@ -66,6 +65,10 @@ defmodule KattyWeb.Router do
     post "/users/register", UserRegistrationController, :create
     get "/users/log_in", UserSessionController, :new
     post "/users/log_in", UserSessionController, :create
+    get "/login", UserSessionController, :new
+    post "/login", UserSessionController, :create
+    get "/users/login", UserSessionController, :new
+    post "/users/login", UserSessionController, :create
     get "/users/reset_password", UserResetPasswordController, :new
     post "/users/reset_password", UserResetPasswordController, :create
     get "/users/reset_password/:token", UserResetPasswordController, :edit
@@ -84,8 +87,7 @@ defmodule KattyWeb.Router do
 
   scope "/", KattyWeb do
     pipe_through [:browser]
-
-    delete "/users/log_out", UserSessionController, :delete
+    get "/logout", UserSessionController, :delete
     get "/users/confirm", UserConfirmationController, :new
     post "/users/confirm", UserConfirmationController, :create
     get "/users/confirm/:token", UserConfirmationController, :edit

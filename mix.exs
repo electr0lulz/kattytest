@@ -20,7 +20,7 @@ defmodule Katty.MixProject do
   def application do
     [
       mod: {Katty.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :os_mon, :recaptcha]
     ]
   end
 
@@ -34,22 +34,25 @@ defmodule Katty.MixProject do
   defp deps do
     [
       {:bcrypt_elixir, "~> 3.0"},
-      {:phoenix, "~> 1.6.11"},
-      {:phoenix_ecto, "~> 4.4"},
-      {:ecto_sql, "~> 3.6"},
+      {:absinthe_plug, "~> 1.5.8"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 3.0"},
+      {:ecto_sql, "~> 3.8.3"},
+      {:ecto_psql_extras, "~> 0.7"},
+      {:phoenix, "~> 1.6.11"},
+      {:phoenix_html, "~> 3.2"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.17.5"},
-      {:floki, ">= 0.30.0", only: :test},
+      {:phoenix_live_view, "~> 0.17.10"},
       {:phoenix_live_dashboard, "~> 0.6"},
-      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
+      {:phoenix_ecto, "~> 4.4"},
+      {:floki, ">= 0.30.0", only: :test},      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
       {:swoosh, "~> 1.3"},
+      {:gen_smtp, "~> 1.1"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
-      {:jason, "~> 1.2"},
+      {:jason, "~> 1.3", override: true},
       {:plug_cowboy, "~> 2.5"},
+      {:recaptcha, "~> 3.1"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
     ]
   end

@@ -29,7 +29,7 @@ defmodule KattyWeb.UserResetPasswordController do
     render(conn, "edit.html", changeset: Users.change_user_password(conn.assigns.user))
   end
 
-  # Do not log in the user after reset password to avoid a
+  # OK Do not log in the user after reset password to avoid a
   # leaked token giving the user access to the account.
   def update(conn, %{"user" => user_params}) do
     case Users.reset_user_password(conn.assigns.user, user_params) do

@@ -67,6 +67,10 @@ defmodule Katty.Users do
 
   ## User registration
 
+  def delete_user(%User{} = user) do
+    Repo.delete(user)
+  end
+
   @doc """
   Registers a user.
 

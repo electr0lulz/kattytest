@@ -5,7 +5,7 @@ defmodule KattyWeb.UserAuth do
   alias Katty.Users
   alias KattyWeb.Router.Helpers, as: Routes
 
-  # Make the remember me cookie valid for 60 days.
+  # Ok Make the remember me cookie valid for 60 days.
   # If you want bump or reduce this value, also change
   # the token expiry itself in UserToken.
   @max_age 60 * 60 * 24 * 60
