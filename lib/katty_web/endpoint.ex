@@ -20,7 +20,7 @@ defmodule KattyWeb.Endpoint do
     at: "/",
     from: :katty,
     gzip: false,
-    only: ~w(assets fonts images favicon.ico robots.txt)
+    only: ~w(assets fonts images favicon.ico robots.txt cat.svg svg images/* js css scss vendor)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

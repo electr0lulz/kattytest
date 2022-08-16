@@ -8,7 +8,7 @@ defmodule Katty.Users.UserNotifier do
     email =
       new()
       |> to(recipient)
-      |> from({"Katty", "contact@example.com"})
+      |> from({"Katty", "admin@madkatty.com"})
       |> subject(subject)
       |> text_body(body)
 

@@ -5,9 +5,12 @@ defmodule Katty.Repo.Migrations.CreateUsersAuthTables do
     execute "CREATE EXTENSION IF NOT EXISTS citext", ""
 
     create table(:users) do
+      add :username, :string, null: false
       add :email, :citext, null: false
       add :hashed_password, :string, null: false
       add :confirmed_at, :naive_datetime
+      add :is_admin,  :boolean, null: false, default: false # no admin as default
+      add :is_active, :boolean, null: false, default: true # account is active as default
       timestamps()
     end
 

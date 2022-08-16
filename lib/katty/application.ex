@@ -1,5 +1,6 @@
 defmodule Katty.Application do
   # See https://hexdocs.pm/elixir/Application.html
+  # OK
   # for more information on OTP Applications
   @moduledoc false
 

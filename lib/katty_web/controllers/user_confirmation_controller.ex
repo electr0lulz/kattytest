@@ -38,7 +38,7 @@ defmodule KattyWeb.UserConfirmationController do
         |> redirect(to: "/")
 
       :error ->
-        # If there is a current user and the account was already confirmed,
+        # OK If there is a current user and the account was already confirmed,
         # then odds are that the confirmation link was already visited, either
         # by some automation or by the user themselves, so we redirect without
         # a warning message.

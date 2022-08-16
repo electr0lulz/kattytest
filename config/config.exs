@@ -1,10 +1,3 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Config module.
-#
-# This configuration file is loaded before any dependency and
-# is restricted to this project.
-
-# General application configuration
 import Config
 
 config :katty,
@@ -26,6 +19,30 @@ config :katty, KattyWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :katty, Katty.Mailer, adapter: Swoosh.Adapters.Local
 
+config :katty,
+page_url: "dashboard.madkatty.com",
+company_name: "Katty Inc",
+company_address: "Kat Boulevard 21",
+company_zip: "54933-7180",
+company_city: "Lulzsec",
+company_state: "Memories",
+company_country: "Slaydown",
+contact_name: "Katty Mad",
+contact_phone: "+1 (127) 0-0-1",
+contact_email: "admin@madkatty.com",
+from_email: "admin@madkatty.com"
+
+config :katty, Katty.Mailer,
+  adapter: Swoosh.Adapters.SMTP,
+  relay: "smtp.freesmtpservers.com",
+  username: "",
+  password: "",
+  ssl: :false,
+  tls: :never,
+  auth: :never,
+  port: 25,
+  retries: 2,
+  no_mx_lookup: true
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
 
@@ -39,7 +56,8 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
-config :tailwind, version: "3.0.23", default: [
+config :tailwind, version: "3.0.24",
+default: [
   args: ~w(
     --config=tailwind.config.js
     --input=css/app.css
@@ -54,7 +72,7 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
-
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
+config :recaptcha,
+public_key:  "6LflGHohAAAAALr6myJDEyMuH4eBXD5q2cH-mc1v",
+secret:  ""
 import_config "#{config_env()}.exs"
