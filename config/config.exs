@@ -74,10 +74,5 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 config :recaptcha,
 public_key:  "6LflGHohAAAAALr6myJDEyMuH4eBXD5q2cH-mc1v",
-secret:  ""
-<<<<<<< HEAD
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
-=======
->>>>>>> 0f1467312eb44b3a69a9ca5e6b8a6eec7936dd3d
+secret:  "6LflGHohAAAAAPUGGxmOh9T2fIYFmP6JJ6BAD76X"
 import_config "#{config_env()}.exs"

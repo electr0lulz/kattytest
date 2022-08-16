@@ -63,6 +63,8 @@ defmodule KattyWeb.Router do
 
     get "/users/register", UserRegistrationController, :new
     post "/users/register", UserRegistrationController, :create
+    get "/register", UserRegistrationController, :new
+    post "register", UserRegistrationController, :create
     get "/users/log_in", UserSessionController, :new
     post "/users/log_in", UserSessionController, :create
     get "/login", UserSessionController, :new
