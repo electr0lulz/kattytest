@@ -17,7 +17,7 @@
           <%= if @conn.assigns[:current_user]  do %>
           <%= link to: Routes.live_path(@conn, KattyWeb.AdminLive.Index), class: "inline-block p-2 h-10 text-center text-blue-300 no-underline duration-300 ease-in-out transform md:p-4 md:h-auto hover:text-pink-500 hover:scale-125 hover:text-underline" do %>
           <svg class="h-6 w-6 text-green-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M15 11l4 4l-4 4m4 -4h-11a4 4 0 0 1 0 -8h1" /></svg>          <% end %> 
-          <%= link to: Routes.user_session_path(@conn, :delete), method: :delete, class: "inline-block p-2 h-10 text-center text-blue-300 no-underline duration-300 ease-in-out transform md:p-4 md:h-auto hover:text-pink-500 hover:scale-125 hover:text-underline" do %>
+          <%= link to: Routes.user_session_path(@conn, :delete), class: "inline-block p-2 h-10 text-center text-blue-300 no-underline duration-300 ease-in-out transform md:p-4 md:h-auto hover:text-pink-500 hover:scale-125 hover:text-underline" do %>
           <svg class="h-6 w-6 text-red-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M7 6a7.75 7.75 0 1 0 10 0" />  <line x1="12" y1="4" x2="12" y2="12" /></svg>          <% end %>          
           <% else %>
           <%= link to: Routes.user_session_path(@conn, :new), class: "inline-block p-2 h-10 text-center text-blue-300 no-underline duration-300 ease-in-out transform md:p-4 md:h-auto hover:text-pink-500 hover:scale-125 hover:text-underline" do %>
