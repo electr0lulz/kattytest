@@ -1,4 +1,5 @@
 # The directory Mix will write compiled artifacts to.
+/conf
 /_build/
 .DS_Store
 config/config.exs
